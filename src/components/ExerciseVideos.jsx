@@ -3,7 +3,6 @@ import React from "react"
 import { Box, Stack, Typography } from "@mui/material"
 
 const ExerciseVideos = ({ exerciseVideos, name }) => {
-  console.log(exerciseVideos)
   if (!exerciseVideos.length) return "Loading..."
   return (
     <Box sx={{ marginTop: { lg: "200px", xs: "20px" } }} p="20px">
@@ -28,7 +27,16 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
             target="_blank"
             rel="noreferrer"
           >
-            <img src={item.video.thumbnail} alt={item.video.title} />
+            <img src={item.video.thumbnails[0].url} alt={item.video.title} />
+
+            <Box>
+              <Typography variant="h5" color="#000">
+                {item.video.title}
+              </Typography>
+              <Typography variant="h6" color="#000">
+                {item.video.channelName}
+              </Typography>
+            </Box>
           </a>
         ))}
       </Stack>
